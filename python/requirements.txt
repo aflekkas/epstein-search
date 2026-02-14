@@ -1,0 +1,10 @@
+requests
+tqdm
+pypdf
+langchain
+langchain-openai
+langchain-community
+chromadb
+fastapi
+uvicorn
+python-dotenv

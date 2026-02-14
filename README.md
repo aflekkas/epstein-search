@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Epstein Files RAG Search
 
-## Getting Started
+AI-powered search platform for the Epstein investigation documents released by the U.S. Department of Justice.
 
-First, run the development server:
+**Live Demo:** (Coming soon)  
+**GitHub:** https://github.com/aflekkas/epstein-search
+
+## 🎯 What is this?
+
+The DOJ released 524 documents from the Epstein investigation, but their search tool is limited. This project provides:
+
+- **Semantic search** across all documents (not just keyword matching)
+- **AI-powered Q&A** - ask questions in natural language
+- **Source citations** - see which documents support each answer
+- **Better than the gov site** - handles handwritten docs, OCR issues, complex queries
+
+## 🚀 Quick Start
+
+### Backend (Python RAG System)
+
+The core search functionality is built in Python:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd python
+pip install -r requirements.txt
+python download_pdfs.py      # Download all PDFs
+python process_documents.py  # Create embeddings
+python rag_api.py           # Start API server
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+See `python/README.md` for detailed instructions.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Frontend (Next.js)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Coming soon - simple search interface.
 
-## Learn More
+```bash
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📊 Data
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **524 documents** from 12 data sets
+- Released: February 13, 2026
+- Source: https://www.justice.gov/...
+- Includes: memos, correspondence, audio files, flight logs, etc.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠 Tech Stack
 
-## Deploy on Vercel
+- **Backend**: Python, FastAPI, LangChain, ChromaDB
+- **Frontend**: Next.js 15, TypeScript, Tailwind CSS
+- **AI**: OpenAI (embeddings + GPT-5.2)
+- **Storage**: Local vector store (ChromaDB)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 💡 Use Cases
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Research** - Journalists, investigators, researchers
+2. **Content Creation** - YouTube videos, Twitter threads, articles
+3. **Public Access** - Better search than government site
+4. **API Access** - Programmatic queries for data analysis
+
+## 📝 API Endpoints
+
+```bash
+POST /query       # Ask questions (RAG)
+GET  /search      # Semantic search
+GET  /stats       # System info
+```
+
+Full API docs at `http://localhost:8000/docs` when running.
+
+## 🗺️ Roadmap
+
+- [x] Document scraping
+- [x] RAG system (Python)
+- [x] API server
+- [ ] Complete PDF downloads
+- [ ] Frontend UI
+- [ ] Authentication
+- [ ] Advanced filters
+- [ ] Deployment
+- [ ] API rate limiting
+- [ ] Premium features
+
+## 📄 License
+
+MIT - See LICENSE file
+
+## 🙏 Contributing
+
+Contributions welcome! Open an issue or PR.
+
+## 🔗 Links
+
+- [Project Plan](PROJECT_PLAN.md)
+- [Python README](python/README.md)
+- [DOJ Source](https://www.justice.gov/...)
